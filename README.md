@@ -11,6 +11,7 @@ llm install llm-cmd-comp
 Then install the shell integration for your preferred shell.
 
 - **Fish**: place `share/llm-cmd-comp.fish` in `~/.config/fish/conf.d/`.
+- **Zsh**: source `share/llm-cmd-comp.zsh` in your `~/.zshrc`.
 - **Bash**: source `share/llm-cmd-comp.bash` in your `~/.bashrc`.
 
 ## Usage
