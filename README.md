@@ -1,6 +1,8 @@
 # Shell completion using LLM
 
-Use LLM to generate and execute commands in your shell
+Use LLM to generate and execute commands in your shell.
+
+https://github.com/user-attachments/assets/c10d7a0f-48c3-4904-bb1b-4a1ce9f9ff8d
 
 ## Installation
 
@@ -24,11 +26,11 @@ Then install the shell integration for your preferred shell.
 
 Neat ways you can use this feature:
 
-- **Type a command in English, convert it to bash.**
-  `find all files larger than 100MB`
+- **Type a command in English, convert it to bash.**<br />
+  `find all files larger than 100MB`<br />
   🪄 `find . -type f -size +100M`
-- **Give extra instructions as comments.**
-  `sed -i '' 's/search/replace/g' file.go # Now do it for all go files in the project`
+- **Give extra instructions as comments.**<br />
+  `sed -i '' 's/search/replace/g' file.go # Now do it for all go files in the project`<br />
   🪄 `find . -name '*.go' -exec sed -i '' 's/search/replace/g' {} +`
 
 ## Development

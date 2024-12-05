@@ -17,9 +17,15 @@ post_package_bump_hooks = []
 tag_prefix = "v"
 
 [git_hooks]
+[git_hooks.commit-msg]
+script = """#!/bin/sh
+set -e
+cog verify --file "$1"
+"""
 
 [commit_types]
 chore = { changelog_title = "", omit_from_changelog = true }
+docs = { changelog_title = "", omit_from_changelog = true }
 
 [changelog]
 path = "CHANGELOG.md"
