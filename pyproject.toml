@@ -1,0 +1,10 @@
+[project]
+name = "llm-cmd-comp"
+version = "1.0.0"
+dependencies = [
+    "llm",
+    "prompt_toolkit>=3.0.43",
+]
+
+[project.entry-points.llm]
+cmdcomp = "llm_cmd_comp"
