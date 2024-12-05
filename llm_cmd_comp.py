@@ -47,14 +47,17 @@ def interactive_exec(conversation, command, system):
     ttyin = create_input(always_prefer_tty=True)
     ttyout = create_output(always_prefer_tty=True)
     session = PromptSession(input=ttyin, output=ttyout)
+    system = system or SYSTEM_PROMPT
 
+    command = conversation.prompt(command, system=system)
     while True:
-        command = conversation.prompt(command, system=system or SYSTEM_PROMPT)
         ttyout.write("$ ")
         for chunk in command:
             ttyout.write(chunk.replace("\n", "\n> "))
+        command = command.text()
         ttyout.write("\n# Provide revision instructions; leave blank to finish\n")
         feedback = session.prompt("> ")
         if feedback == "":
             break
+        command = conversation.prompt(feedback, system=system)
     print(command)
