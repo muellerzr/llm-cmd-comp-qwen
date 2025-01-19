@@ -2,6 +2,8 @@
 set -eu
 
 # @cmd Publish to PyPI
+#
+# Invoked via "cog bump -a"
 publish() {
 	git push origin main --tags
 	pip install --upgrade build twine
