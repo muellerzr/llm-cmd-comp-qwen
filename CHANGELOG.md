@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v1.1.1 - 2025-01-19
+#### Bug Fixes
+- Improve help text on cmdcomp - (51183c8) - Ryan Patterson
+
+- - -
+
 ## v1.1.0 - 2024-12-05
 #### Features
 - Fix multi-turn edit sessions - (964b84f) - Ryan Patterson
