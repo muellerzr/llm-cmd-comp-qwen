@@ -29,6 +29,12 @@ llm term "list all files larger than 100MB"
 ```
 The command will be generated and executed automatically.
 
+You can also use the `--no-think` (or `-nt`) flag to disable thinking tokens in the response:
+```bash
+llm term --no-think "list all files larger than 100MB"
+```
+This will give you a more direct response without the model's thinking process.
+
 ### 2. Interactive Shell Integration
 1. Start typing a command.
 2. Activate the key binding (Ctrl+k by default).

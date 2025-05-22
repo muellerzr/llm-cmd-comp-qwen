@@ -25,11 +25,14 @@ def register_commands(cli):
     @click.option("-m", "--model", default=None, help="Specify the model to use")
     @click.option("-s", "--system", help="Custom system prompt")
     @click.option("--key", help="API key to use")
-    def term(args, model, system, key):
+    @click.option("--no-think", "--nt", is_flag=True, help="Disable thinking tokens in the response")
+    def term(args, model, system, key, no_think):
         """Generate and execute terminal commands using natural language"""
         from llm.cli import get_default_model
 
         prompt = " ".join(args)
+        if no_think:
+            prompt = "\\no_think " + prompt
         model_id = model or get_default_model()
         model_obj = llm.get_model(model_id)
         if model_obj.needs_key:
