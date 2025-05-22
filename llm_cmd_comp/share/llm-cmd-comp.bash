@@ -11,7 +11,7 @@ __llm_cmdcomp() {
     echo
     
     # Get the LLM completion and extract just the command
-    if raw_result="$(llm cmdcomp "${old_cmd}")"; then
+    if raw_result="$(llm term "${old_cmd}")"; then
         # Extract just the command (last non-empty line before any # comments)
         result=$(echo "${raw_result}" | grep -v '^#' | grep -v '^>' | grep -v '^$' | tail -n 1)
         

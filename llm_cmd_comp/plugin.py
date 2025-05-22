@@ -25,8 +25,8 @@ def register_commands(cli):
     @click.option("-m", "--model", default=None, help="Specify the model to use")
     @click.option("-s", "--system", help="Custom system prompt")
     @click.option("--key", help="API key to use")
-    def cmdcomp(args, model, system, key):
-        """Generate commands directly in your command line (requires shell integration)"""
+    def term(args, model, system, key):
+        """Generate and execute terminal commands using natural language"""
         from llm.cli import get_default_model
 
         prompt = " ".join(args)

@@ -5,7 +5,7 @@ __llm_cmdcomp() {
   local old_cmd=$BUFFER
   local cursor_pos=$CURSOR
   echo # Start the program on a blank line
-  local result=$(llm cmdcomp "$old_cmd")
+  local result=$(llm term "$old_cmd")
   if [ $? -eq 0 ] && [ ! -z "$result" ]; then
     BUFFER=$result
   else

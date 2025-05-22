@@ -1,5 +1,5 @@
 [project]
-name = "llm-cmd-comp"
+name = "llm-cmd-comp-qwen"
 version = "0.0.1"
 description = "Use LLM to generate commands for your shell: specialized for qwen3"
 readme = "README.md"
@@ -19,4 +19,4 @@ Changelog = "https://github.com/muellerzr/llm-cmd-comp-qwen/releases"
 Issues = "https://github.com/muellerzr/llm-cmd-comp-qwen/issues"
 
 [project.entry-points.llm]
-cmdcomp = "llm_cmd_comp.plugin"
+term = "llm_cmd_comp.plugin"
