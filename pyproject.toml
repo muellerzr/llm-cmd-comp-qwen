@@ -19,4 +19,4 @@ Changelog = "https://github.com/muellerzr/llm-cmd-comp-qwen/releases"
 Issues = "https://github.com/muellerzr/llm-cmd-comp-qwen/issues"
 
 [project.entry-points.llm]
-term = "llm_cmd_comp.plugin"
+term = "llm_cmd_comp_qwen.plugin"
