@@ -3,17 +3,21 @@ bind -x '"\C-k": __llm_cmdcomp'
 
 __llm_cmdcomp() {
     # Store the current command line
-    local old_cmd="${READLINE_LINE}"
+    local old_cmd="${1:-${READLINE_LINE}}"
     local cursor_pos="${READLINE_POINT}"
     local result
     
     # Move to a new line
     echo
     
-    # Get the LLM completion
-    if result="$(llm cmdcomp "${old_cmd}")"; then
+    # Get the LLM completion and extract just the command
+    if raw_result="$(llm cmdcomp "${old_cmd}")"; then
+        # Extract just the command (last non-empty line before any # comments)
+        result=$(echo "${raw_result}" | grep -v '^#' | grep -v '^>' | grep -v '^$' | tail -n 1)
+        
         # If called directly with a command, execute it
         if [ -n "${1}" ]; then
+            echo "Executing: ${result}"
             eval "${result}"
             return
         fi
