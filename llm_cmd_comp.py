@@ -3,6 +3,7 @@ import platform
 import os
 import llm
 import string
+import re
 from prompt_toolkit import PromptSession
 from prompt_toolkit.input import create_input
 from prompt_toolkit.output import create_output
@@ -60,4 +61,6 @@ def interactive_exec(conversation, command, system):
         if feedback == "":
             break
         command = conversation.prompt(feedback, system=system)
+    # Remove any thinking tags and their contents
+    command = re.sub(r"<think>.*?</think>", "", command, flags=re.DOTALL)
     print(command)
