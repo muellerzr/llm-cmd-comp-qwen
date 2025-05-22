@@ -1,5 +1,5 @@
-# Bind Alt+\ to the LLM command completion
-bind -x '"\e\\": __llm_cmdcomp'
+# Bind Ctrl+k to the LLM command completion
+bind -x '"\C-k": __llm_cmdcomp'
 
 __llm_cmdcomp() {
     # Store the current command line
@@ -12,6 +12,12 @@ __llm_cmdcomp() {
     
     # Get the LLM completion
     if result="$(llm cmdcomp "${old_cmd}")"; then
+        # If called directly with a command, execute it
+        if [ -n "${1}" ]; then
+            eval "${result}"
+            return
+        fi
+        
         # Replace the command line with the result
         READLINE_LINE="${result}"
         READLINE_POINT="${#result}"
@@ -24,3 +30,8 @@ __llm_cmdcomp() {
         echo "Command completion failed" >&2
     fi
 }
+
+# Allow direct command execution
+if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
+    __llm_cmdcomp "$@"
+fi
