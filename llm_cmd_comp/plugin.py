@@ -63,4 +63,4 @@ def interactive_exec(conversation, command, system):
         command = conversation.prompt(feedback, system=system)
     # Remove any thinking tags and their contents
     command = re.sub(r"<think>.*?</think>", "", command, flags=re.DOTALL)
-    print(command)
+    print(command.lstrip().rstrip())
